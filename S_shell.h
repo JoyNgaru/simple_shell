@@ -32,7 +32,29 @@
 #define END_OF_FILE -2
 #define EXIT -3
 
-/* declaring
+/* declaring global variable name for a program*/
+
+char *name 
 /* declaring global varibales to be used in the global environment*/
 extern char **env
+/* declaring global variable for hhistory*/
+int history
+
+
+/* defining a structure of a linked list*/
+
+/**
+ * stuct list_struct - structure for defining a linked list
+ * @directory: a pointer to the directory's path
+ * @next: A pointer to another structure
+ */
+
+typedef struct list_struct
+{
+	char *directory;
+	struct list_struct *next;
+} list_t;
+
+
+/* defining a structure for builtin apis
 
