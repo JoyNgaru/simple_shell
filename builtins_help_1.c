@@ -64,7 +64,7 @@ void help_alias(void)
  */
 void help_cd(void)
 {
-	char *msg = "cd: cd [DIRECTORY]\n\tChanges the current working directory of the";
+	char *msg = "cd: cd [DIRECTORY]\n\tChanges current working directory of the";
 
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = " process to DIRECTORY.\n\n\tIf no argument is given, the ";
@@ -106,5 +106,4 @@ void help_help(void)
 	msg = "\n      help [BUILTIN NAME]\n\tSee specific information on each ";
 	write(STDOUT_FILENO, msg, _strlen(msg));
 	msg = "builtin command.\n";
-	write(STDOUT_FILENO, msg, _strlen(msg));
-}
+	write(STDOUT_FILENO, msg, _strlen(msg))

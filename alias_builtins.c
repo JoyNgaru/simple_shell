@@ -77,7 +77,8 @@ void set_alias(char *var_name, char *value)
 	new_value = malloc(sizeof(char) * (size + 1));
 	if (!new_value)
 		return;
-	for (contents_name = 0, contents_value = 0; value[contents_name]; contents_name++)
+	for (contents_name = 0, contents_value = 0; value[contents_name];
+			contents_name++)
 	{
 		if (value[contents_name] != '\'' && value[contents_name] != '"')
 			new_value[contents_value++] = value[contents_name];

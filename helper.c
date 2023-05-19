@@ -17,7 +17,8 @@ void variable_replacement(char **args, int *exe_ret);
 /**
  * free_args - Free space memory created by arguments.
  * @args: Null-terminated pointer pointing tor commands/arguments.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments
+ * @front: pointer pointing to the pointer pointing to
+ * the beginning of arguments
  */
 void free_args(char **args, char **front)
 {
@@ -51,13 +52,13 @@ char *get_pid(void)
 		close(data);
 		return (NULL);
 	}
-	read(data, buffer_store;, 120);
+	read(data, buffer_store, 120);
+
 	while (buffer[content != ' ')
 		content++;
 	buffer[content] = '\0';
-
 	close(data);
-	return (buffer_store;);
+	return (buffer_store);
 }
 
 /**
@@ -95,7 +96,8 @@ char *get_env_value(char *beginning, int len)
 
 /**
  * variable_replacement - substitution handler.
- * @line: pointer pointing to the pointer pointing to the beginning of arguments
+ * @line: pointer pointing to the pointer pointing to the
+ * beginning of arguments
  * @exe_ret: A pointer to the last executed command.
  */
 void variable_replacement(char **line, int *exe_ret)

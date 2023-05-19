@@ -40,10 +40,11 @@ int shellby_env(char **args, char __attribute__((__unused__)) **front)
 }
 
 /**
- * shellby_setenv - Changes or adds an environmental variable to the PATH of the shell Command.
+ * shellby_setenv - Changes or adds an environmental variable to the
+ * PATH of the shell Command.
  * @args: Arguments input the shell.
- * @front: A double pointer to the beginning of args.pointer
- * pointing to the pointer pointing to the beginning of arguments
+ * @front: Pointer pointing to the pointer pointing to
+ * the beginning of arguments
  * Description: args[1]:name of the new or existing PATH variable.
  *  args[2] value to set the new or changed variable to.
  * Return: If an error occurs - -1, otherwise - 0.
@@ -95,7 +96,8 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
 /**
  * shellby_unsetenv - Deletes an environmental variable from the PATH.
  * @args: Arguments input on the shell.
-@front:.pointer pointing to the pointer pointing to the beginning of arguments
+ * @front: Pointer pointing to the pointer pointing to
+ * the beginning of arguments
  * Description: args[1] is the PATH variable to deleted.
   * Return: If an error occurs - -1, otherwise - 0.
  */
