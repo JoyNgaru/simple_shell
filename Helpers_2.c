@@ -14,7 +14,7 @@ ssize_t get_new_len(char *line);
 void logical_ops(char *line, ssize_t *new_len);
 
 /**
- * handle_line - handles the line partitions ";", "||", and "&&" by adding space
+ * handle_line - handles line partitions ";", "||", and "&&" by adding space
  * and uses '\0' instead of #.
  * @line: line pointer pointing to the standard input being read.
  * @read: number of words being read.
@@ -103,7 +103,7 @@ void handle_line(char **line, ssize_t read)
 }
 
 /**
- * get_new_len - gives us the size of line partitioned by ";", "||", "&&&", or "#".
+ * get_new_len - displays size of line partitioned by ";", "||", "&&&", or "#".
  * @line: Line checked.
  * Return: Line size.
  */

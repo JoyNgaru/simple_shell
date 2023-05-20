@@ -51,7 +51,8 @@ int cant_open(char *file_path)
  * proc_file_commands - Takes a file and attempts to run its commands
  * @file_path: Path to the file.
  * @exe_ret: Return value of the last executed command.
- * Return: If file couldn't be opened - 127, If malloc fails - -1, else return value of the last command ran.
+ * Return: If file couldn't be opened - 127,
+ * If malloc fails - -1, else return value of the last command ran.
  */
 int proc_file_commands(char *file_path, int *exe_ret)
 {
@@ -60,7 +61,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 	unsigned int prev_size = 120;
 	char *line, **args, **front;
 	char buffer[120];
-	int return_value;
+	int Return_value;
 
 	history = 0;
 	file = open(file_path, O_RDONLY);
@@ -113,16 +114,16 @@ int proc_file_commands(char *file_path, int *exe_ret)
 		{
 			free(args[input]);
 			args[input] = NULL;
-			return_value = call_args(args, front, exe_ret);
+			Return_value = call_args(args, front, exe_ret);
 			args = &args[++input];
 			input = 0;
 		}
 	}
 
-	return_value = call_args(args, front, exe_ret);
+	Return_value = call_args(args, front, exe_ret);
 
 	free(front);
-	return (return_value);
+	return (Return_value);
 }
 
 

@@ -52,13 +52,14 @@ char *get_args(char *line, int *exe_ret)
 /**
  * call_args - handles and calls operators from commands
  * @args: Argument input.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments
+ * @front: pointer pointing to the pointer pointing
+ * to the beginning of arguments
  * @exe_ret: Return value of the parent process' last executed command.
  * Return: The return value of the last executed command.
  */
 int call_args(char **args, char **front, int *exe_ret)
 {
-	int return_value, idx;
+	int Return_value, idx;
 
 	if (!args[0])
 		return (*exe_ret);
@@ -69,7 +70,7 @@ int call_args(char **args, char **front, int *exe_ret)
 			free(args[idx]);
 			args[idx] = NULL;
 			args = replace_aliases(args);
-			return_value = run_args(args, front, exe_ret);
+			Return_value = run_args(args, front, exe_ret);
 			if (*exe_ret != 0)
 			{
 				args = &args[++idx];
@@ -79,7 +80,7 @@ int call_args(char **args, char **front, int *exe_ret)
 			{
 				for (idx++; args[idx]; idx++)
 					free(args[idx]);
-				return (return_value);
+				return (Return_value);
 			}
 		}
 		else if (_strncmp(args[idx], "&&", 2) == 0)
@@ -97,39 +98,40 @@ int call_args(char **args, char **front, int *exe_ret)
 			{
 				for (idx++; args[idx]; idx++)
 					free(args[idx]);
-				return (return_value);
+				return (Return_value);
 			}
 		}
 	}
 	args = replace_aliases(args);
-	return_value = run_args(args, front, exe_ret);
-	return (return_value);
+	Return_value = run_args(args, front, exe_ret);
+	return (Return_value);
 }
 
 /**
  * run_args - Implements cmd execution.
  * @args: Argument input.
- * @front:  pointer pointing to the pointer pointing to the beginning of arguments
+ * @front:  pointer pointing to the pointer pointing
+ * to the beginning of arguments
  * @exe_ret: The return value of the parent process' last executed command.
  * Return: The return value of the last executed command on the shell history.
  */
 int run_args(char **args, char **front, int *exe_ret)
 {
-	int return_value, input;
+	int Return_value, input;
 	int (*builtin)(char **args, char **front);
 
 	builtin = get_builtin(args[0]);
 
 	if (builtin)
 	{
-		return_value = builtin(args + 1, front);
-		if (return_value != EXIT)
+		Return_value = builtin(args + 1, front);
+		if (Return_value != EXIT)
 			*exe_ret = return_value;
 	}
 	else
 	{
 		*exe_ret = execute(args, front);
-		return_value = *exe_ret;
+		Return_value = *exe_ret;
 	}
 
 	history++;
@@ -137,7 +139,7 @@ int run_args(char **args, char **front, int *exe_ret)
 	for (input = 0; args[input]; input++)
 		free(args[input]);
 
-	return (return_value);
+	return (Return_value);
 }
 
 /**
@@ -148,7 +150,7 @@ int run_args(char **args, char **front, int *exe_ret)
  */
 int handle_args(int *exe_ret)
 {
-	int return_value = 0, idx;
+	int Return_value = 0, idx;
 	char **args, *line = NULL, **front;
 
 	line = get_args(line, exe_ret);
@@ -158,7 +160,7 @@ int handle_args(int *exe_ret)
 	args = _strtok(line, " ");
 	free(line);
 	if (!args)
-		return (return_value);
+		return (Return_value);
 	if (check_args(args) != 0)
 	{
 		*exe_ret = 2;
@@ -173,22 +175,23 @@ int handle_args(int *exe_ret)
 		{
 			free(args[idx]);
 			args[idx] = NULL;
-			return_value = call_args(args, front, exe_ret);
+			Return_value = call_args(args, front, exe_ret);
 			args = &args[++idx];
 			idx = 0;
 		}
 	}
 	if (args)
-		return_value = call_args(args, front, exe_ret);
+		Return_value = call_args(args, front, exe_ret);
 
 	free(front);
-	return (return_value);
+	return (Return_value);
 }
 
 /**
  * check_args - Identifies any leading ';', ';;', '&&', or '||'.
  * @args: 2D pointer to tokenized commands and arguments.
- * Return: - 2 If a ';', '&&', or '||' is placed at an invalid position, else, - 0 as error status
+ * Return: - 2 If a ';', '&&', or '||' is at an invalid position
+ * else, - 0 as error status
  */
 int check_args(char **args)
 {

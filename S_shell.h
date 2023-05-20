@@ -33,7 +33,7 @@
 
 /* declaring global variable name for a program*/
 
-char *name 
+char *name
 /* declaring global varibales to be used in the global environment*/
 extern char **env
 /* declaring global variable for hhistory*/

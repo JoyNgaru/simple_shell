@@ -36,7 +36,7 @@ char *_strchr(char *s, char c)
  * _strspn - calculates length of a prefix substring.
  * @s: The string.
  * @accept: The prefix to be measured.
- * Return: The number of bytes 
+ * Return: The number of bytes
  */
 int _strspn(char *s, char *accept)
 {
@@ -99,6 +99,7 @@ int _strncmp(const char *s1, const char *s2, size_t n)
 	if (input == n)
 		return (0);
 	else
-		return (-15);/*indicates that the comparison wasnt completed due to premature termination*/
+		return (-15);
+/*indicates that the comparison wasnt completed due to premature termination*/
 }
 

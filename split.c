@@ -13,10 +13,11 @@ int count_tokens(char *str, char *delim);
 char **_strtok(char *line, char *delim);
 
 /**
- * token_len - Finds the index showing the end of the first token contained within a string.
+ * token_len - Finds the index showing the end of
+ * the first token contained within a string.
  * @str: The string to be searched.
  * @delim: The delimiter index.
- * Return: The delimiter index marking the end of the intitial token pointed to be str.
+ * Return: The delimiter index shwng end of intitial token pointed by str.
  */
 int token_len(char *str, char *delim)
 {
@@ -65,7 +66,7 @@ int count_tokens(char *str, char *delim)
 char **_strtok(char *line, char *delim)
 {
 	char **pointer;
-	int idx = 0, tokens, content_tokens, letters,content_letters;
+	int idx = 0, tokens, content_tokens, letters, content_letters;
 
 	tokens = count_tokens(line, delim);
 	if (tokens == 0)

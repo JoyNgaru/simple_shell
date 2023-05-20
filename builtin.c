@@ -44,7 +44,8 @@ int (*get_builtin(char *command))(char **args, char **front)
 /**
  * shellby_exit - normal exit process from the shellby shell.
  * @args: content containing the exit value.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments.
+ * @front: pointer pointing to the pointer pointing
+ * to the beginning of arguments.
  * Return: If !arguments - -3 and exit back to main function,
  * If exit value is invalid - 2 else, O/w - exits certain value.
  */
@@ -84,9 +85,8 @@ int shellby_exit(char **args, char **front)
 /**
  * shellby_cd - Changes the current directory of the shellby process.
  * @args: Arguments.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments.
-
- *
+ * @front: pointer pointing to the pointer pointing to
+ * the beginning of arguments.
  * Return: If the given string is not a directory - 2.
  *         If an error occurs - -1.
  *         Otherwise - 0.
@@ -166,7 +166,8 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front)
 /**
  * shellby_help -Output information about the shellby builtin commands.
  * @args: Arguments.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments
+ * @front: pointer pointing to the pointer pointing
+ * to the beginning of arguments
  * Return: If an error occurs - -1, errors - 0.
  */
 int shellby_help(char **args, char __attribute__((__unused__)) **front)

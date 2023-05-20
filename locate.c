@@ -14,7 +14,7 @@ list_t *get_path_dir(char *path);
 /**
  * get_location - It searches a command in the PATH.
  * @command: The command to be found.
- * Return: full pathname, else NULL, If an error occurs 
+ * Return: full pathname, else NULL, If an error occurs
  */
 char *get_location(char *command)
 {

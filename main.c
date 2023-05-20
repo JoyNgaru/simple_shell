@@ -27,13 +27,14 @@ void sig_handler(int sig)
 /**
  * execute - Executes a command in a child process.
  * @args: Arguments.
- * @front: pointer pointing to the pointer pointing to the beginning of arguments.
- * Return: exit value of the last executed command, else, a corresponding error code on failure.
+ * @front: pointer pointing to the pointer pointing to beginning of arguments.
+ * Return: exit value of the last executed command
+ * else, a corresponding error code on failure.
  */
 int execute(char **args, char **front)
 {
 	pid_t child_pid;
-	int status, flag = 0, return_value = 0;
+	int status, flag = 0, Return_value = 0;
 	char *command = args[0];
 
 	if (command[0] != '/' && command[0] != '.')
@@ -45,9 +46,13 @@ int execute(char **args, char **front)
 	if (!command || (access(command, F_OK) == -1))
 	{
 		if (errno == EACCES)
-			return_value = (create_error(args, 126));
+		{
+			Return_value = (create_error(args, 126));
+		}
 		else
-			return_value = (create_error(args, 127));
+		{
+			Return_value = (create_error(args, 127));
+		}
 	}
 	else
 	{
@@ -63,7 +68,7 @@ int execute(char **args, char **front)
 		{
 			execve(command, args, env);
 			if (errno == EACCES)
-				return_value = (create_error(args, 126));
+				Return_value = (create_error(args, 126));
 			free_env();
 			free_args(args, front);
 			free_alias_list(aliases);
@@ -72,12 +77,12 @@ int execute(char **args, char **front)
 		else
 		{
 			wait(&status);
-			return_value = WEXITSTATUS(status);
+			Return_value = WEXITSTATUS(status);
 		}
 	}
 	if (flag)
 		free(command);
-	return (return_value);
+	return (Return_value);
 }
 
 /**
@@ -137,4 +142,6 @@ int main(int argc, char *argv[])
 	free_alias_list(aliases);
 	return (*exe_ret);
 }
+
+
 

@@ -14,11 +14,12 @@ list_t *add_node_end(list_t **head, char *directory);
 void free_list(list_t *head);
 
 /**
- * add_alias_end - Adds a node to the tail of alias_t 
+ * add_alias_end - Adds a node to the tail of alias_t
  * @head: A pointer pointing to the head of list_t.
  * @name: Name of the new node.
  * @value: Value of the new node
- * Return: NULL if an error occurs, else, a pointer to the new node in the list.
+ * Return: NULL if error occurs,
+ * else, a pointer to the new node in the list.
  */
 alias_t *add_alias_end(alias_t **head, char *name, char *value)
 {
