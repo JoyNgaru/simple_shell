@@ -33,11 +33,11 @@
 
 /* declaring global variable name for a program*/
 
-char *name
+char *name;
 /* declaring global varibales to be used in the global environment*/
-extern char **env
+extern char **env;
 /* declaring global variable for hhistory*/
-int history
+int history;
 
 
 /* defining a structure of a linked list*/
@@ -76,7 +76,7 @@ typedef struct builtin_struct
  * @value: Alias content.
  * @next: Pointer to another struct alias_s.
  */
-typedef struct alias_s
+typedef struct alias_struct
 {
 	char *name;
 	char *value;

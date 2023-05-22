@@ -118,10 +118,10 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 	if (!env_var)
 		return (0);
 
-	for (size = 0; env[length]; length++)
+	for (length = 0; env[length]; length++)
 		;
 
-	new_environ = malloc(sizeof(char *) * size);
+	new_environ = malloc(sizeof(char *) * length);
 	if (!new_environ)
 		return (create_error(args, -1));
 

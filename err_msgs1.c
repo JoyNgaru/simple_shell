@@ -31,7 +31,7 @@ char *error_env(char **args)
 	args--;
 	size = _strlen(name) + _strlen(history_string) + _strlen(args[0]) + 45;
 	err = malloc(sizeof(char) * (size + 1));
-	if (!error)
+	if (!err)
 	{
 		free(history_string);
 		return (NULL);
@@ -113,7 +113,6 @@ char *error_2_cd(char **args)
 	char *err, *history_string;
 	int length;
 
-	history_string = _itoa(hist);
 	if (!history_string)
 		return (NULL);
 
@@ -165,7 +164,7 @@ char *error_2_syntax(char **args)
 
 	_strcpy(err, name);
 	_strcat(err, ": ");
-	_strcat(err, hist_str);
+	_strcat(err, history_string);
 	_strcat(err, ": Syntax error: \"");
 	_strcat(err, args[0]);
 	_strcat(err, "\" unexpected\n");

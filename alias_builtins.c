@@ -34,7 +34,7 @@ int shellby_alias(char **args, char __attribute__((__unused__)) **front)
 			print_alias(temp);
 			temp = temp->next;
 		}
-		return (rtn);
+		return (rtnt);
 	}
 	for (content = 0; args[content]; content++)
 	{
@@ -52,12 +52,12 @@ int shellby_alias(char **args, char __attribute__((__unused__)) **front)
 				temp = temp->next;
 			}
 			if (!temp)
-				rtn = create_error(args + content, 1);
+				rtnt = create_error(args + content, 1);
 		}
 		else
 			set_alias(args[content], value);
 	}
-	return (rtn);
+	return (rtnt);
 }
 
 /**
@@ -73,7 +73,7 @@ void set_alias(char *var_name, char *value)
 
 	*value = '\0';
 	value++;
-	size = _strlen(value) - _strspn(value, "'\"");
+size = _strlen(value) - _strspn(value, "'\"");
 	new_value = malloc(sizeof(char) * (size + 1));
 	if (!new_value)
 		return;
@@ -126,7 +126,7 @@ void print_alias(alias_t *alias)
 char **replace_aliases(char **args)
 {
 	alias_t *temp;
-	Int content;
+	int content;
 	char *new_value;
 
 	if (_strcmp(args[0], "alias") == 0)

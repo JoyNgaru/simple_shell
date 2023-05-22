@@ -124,7 +124,7 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front)
 		}
 		else
 		{
-			if (stat(args[0], &dir) == 0 && S_ISDIR(directory.st_mode)
+			if (stat(args[0], &dir_info) == 0 && S_ISDIR(directory.st_mode)
 					&& ((directory.st_mode & S_IXUSR) != 0))
 				chdir(args[0]);
 			else
@@ -167,7 +167,6 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front)
 	free(dir_info);
 	return (0);
 }
-
 /**
  * shellby_help -Output information about the shellby builtin commands.
  * @args: Arguments.
