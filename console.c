@@ -40,13 +40,10 @@ int shellby_env(char **args, char __attribute__((__unused__)) **front)
 }
 
 /**
-<<<<<<< HEAD
- * shellby_setenv - Changes or adds an environmental
+* shellby_setenv - Changes or adds an environmental
  * variable to the PATH of the shell Command.
-=======
  * shellby_setenv - Changes or adds an environmental variable to the
  * PATH of the shell Command.
->>>>>>> 735b797057805ac6ee03c210d56eb75555636f08
  * @args: Arguments input the shell.
  * @front: Pointer pointing to the pointer pointing to
  * the beginning of arguments

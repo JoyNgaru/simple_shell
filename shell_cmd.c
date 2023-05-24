@@ -44,13 +44,10 @@ int (*get_builtin(char *command))(char **args, char **front)
 /**
  * shellby_exit - normal exit process from the shellby shell.
  * @args: content containing the exit value.
-<<<<<<< HEAD
  * @front: pointer pointing to the pointer pointing
- * to the beginning of arguments.
-=======
+ * to the beginning of argumets
  * @front: pointer pointing to the pointer pointing to
  * the beginning of arguments.
->>>>>>> 735b797057805ac6ee03c210d56eb75555636f08
  * Return: If !arguments - -3 and exit back to main function,
  * If exit value is invalid - 2 else, O/w - exits certain value.
  */
@@ -170,13 +167,10 @@ int shellby_cd(char **args, char __attribute__((__unused__)) **front)
 /**
  * shellby_help -Output information about the shellby builtin commands.
  * @args: Arguments.
-<<<<<<< HEAD
  * @front: pointer pointing to the pointer pointing
- * to the beginning of arguments
-=======
+ * to the beginningof argts
  * @front: pointer pointing to the pointer pointing to
  * the beginning of arguments
->>>>>>> 735b797057805ac6ee03c210d56eb75555636f08
  * Return: If an error occurs - -1, errors - 0.
  */
 int shellby_help(char **args, char __attribute__((__unused__)) **front)
