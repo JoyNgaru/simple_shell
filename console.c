@@ -21,7 +21,7 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
  * Return: -1 If an error occurs else - 0.
  * Description: outputs one variable per ('variable' = 'value')
  */
-int shellby_env(char **args, char __attribute__((__unused__)) **front)
+int shellby_env(char **args, char __attribute__((__unused__)) **front);
 {
 	int index;
 	char nc = '\n';
@@ -51,7 +51,7 @@ int shellby_env(char **args, char __attribute__((__unused__)) **front)
  *  args[2] value to set the new or changed variable to.
  * Return: If an error occurs - -1, otherwise - 0.
  */
-int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
+int shellby_setenv(char **args, char __attribute__((__unused__)) **front);
 {
 	char **env_var = NULL, **new_environ, *new_value;
 	size_t length;
@@ -103,7 +103,7 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
  * Description: args[1] is the PATH variable to deleted.
   * Return: If an error occurs - -1, otherwise - 0.
  */
-int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
+int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
 {
 	char **env_var, **new_environ;
 	size_t length;

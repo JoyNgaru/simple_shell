@@ -19,7 +19,7 @@ char **_getenv(const char *var);
  * Return: If an error occurs - NULL.
  *         O/w - a double pointer to the new copy.
  */
-char **_copyenv(void)
+char **_copyenv(void);
 {
 	char **new_environ;
 	size_t length;
