@@ -161,6 +161,6 @@ void help_unsetenv(void);
 void help_history(void);
 
 /* malloc_checked - checks for malloc */
-void *malloc_checked(unsigned int b)
+void *malloc_checked(unsigned int b);
 int proc_file_commands(char *file_path, int *exe_ret);
 #endif
