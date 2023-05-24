@@ -3,7 +3,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*              Function of file: Inputs file          */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */

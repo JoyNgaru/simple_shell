@@ -3,7 +3,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*              Function of file: Errors file          */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */
@@ -112,6 +112,8 @@ char *error_2_cd(char **args)
 {
 	char *err, *history_string;
 	int length;
+
+	history_string = NULL;
 
 	if (!history_string)
 		return (NULL);

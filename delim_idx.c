@@ -3,7 +3,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*              Function of file: delimt file          */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */
@@ -65,7 +65,7 @@ int count_tokens(char *str, char *delim)
  */
 char **_strtok(char *line, char *delim)
 {
-	char **pointer;
+	char **pointer, ptr;
 	int idx = 0, tokens, content_tokens, letters, content_letters;
 
 	tokens = count_tokens(line, delim);

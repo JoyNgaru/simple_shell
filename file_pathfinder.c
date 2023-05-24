@@ -91,7 +91,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 		{
 			line[input] = ';';
 			for (input += 1; input < line_size && line[input] == '\n'; input++)
-				line[i] = ' ';
+				line[input] = ' ';
 		}
 	}
 	variable_replacement(&line, exe_ret);

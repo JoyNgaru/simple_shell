@@ -3,7 +3,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*              Function of file: handler file          */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */
@@ -48,7 +48,7 @@ int num_len(int num)
  */
 char *_itoa(int num)
 {
-	char *buffer_store;
+	char *buffer_store, buffer;
 	int length = num_len(num);
 	unsigned int number;
 
