@@ -72,7 +72,7 @@ int execute(char **args, char **front)
 			free_env();
 			free_args(args, front);
 			free_alias_list(aliases);
-			_exit(return_value);
+			_exit(Return_value);
 		}
 		else
 		{
