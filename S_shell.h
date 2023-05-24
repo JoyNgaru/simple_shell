@@ -43,7 +43,7 @@ int history;
 /* defining a structure of a linked list*/
 
 /**
- * stuct list_struct - structure for defining a linked list
+ * struct list_struct - structure for defining a linked list
  * @directory: a pointer to the directory's path
  * @next: A pointer to another structure
  */
@@ -71,7 +71,7 @@ typedef struct builtin_struct
 /* defining a structure for aliases*/
 
 /**
- * struct alias_s - structure to declare aliases.
+ * struct alias_struct - structure to declare aliases.
  * @name: Alias name.
  * @value: Alias content.
  * @next: Pointer to another struct alias_s.
@@ -160,6 +160,7 @@ void help_setenv(void);
 void help_unsetenv(void);
 void help_history(void);
 
+/* malloc_checked - checks for malloc */
 void *malloc_checked(unsigned int b)
 int proc_file_commands(char *file_path, int *exe_ret);
-#endif 
+#endif
