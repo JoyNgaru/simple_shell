@@ -36,6 +36,7 @@ int execute(char **args, char **front)
 	pid_t child_pid;
 	int status, flag = 0, Return_value = 0;
 	char *command = args[0];
+	extern char **environ;
 
 	if (command[0] != '/' && command[0] != '.')
 	{
@@ -66,7 +67,7 @@ int execute(char **args, char **front)
 		}
 		if (child_pid == 0)
 		{
-			execve(command, args, env);
+			execve(command, args, environ);
 			if (errno == EACCES)
 				Return_value = (create_error(args, 126));
 			free_env();
@@ -93,6 +94,7 @@ int execute(char **args, char **front)
  */
 int main(int argc, char *argv[])
 {
+	extern char **environ;
 	int ret = 0, retn;
 	int *exe_ret = &retn;
 	char *prompt = "$ ", *new_line = "\n";
@@ -103,8 +105,8 @@ int main(int argc, char *argv[])
 	signal(SIGINT, sig_handler);
 
 	*exe_ret = 0;
-	env = _copyenv();
-	if (!env)
+	environ = _copyenv();
+	if (!environ)
 		exit(-100);
 
 	if (argc != 1)

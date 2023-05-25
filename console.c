@@ -23,6 +23,7 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
  */
 int shellby_env(char **args, char __attribute__((__unused__)) **front)
 {
+	extern char **environ;
 	int index;
 	char nc = '\n';
 
@@ -53,6 +54,7 @@ int shellby_env(char **args, char __attribute__((__unused__)) **front)
  */
 int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
 {
+	extern char **environ;
 	char **env_var = NULL, **new_environ, *new_value;
 	size_t size;
 	int index;
@@ -105,6 +107,8 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
  */
 int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 {
+	
+	extern char **environ;
 	char **env_var, **new_environ;
 	size_t size;
 	int index, index2;

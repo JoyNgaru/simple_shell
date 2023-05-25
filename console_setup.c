@@ -19,33 +19,35 @@ char **_getenv(const char *var);
  * Return: If an error occurs - NULL.
  *         O/w - a double pointer to the new copy.
  */
+
 char **_copyenv(void)
 {
 	char **new_environ;
-	size_t length;
-	int idx;
+	size_t size;
+	int index;
+	extern char **environ;
 
-	for (length = 0; env[length]; length++)
+	for (size = 0; environ[size]; size++)
 		;
 
-	new_environ = malloc(sizeof(char *) * (length + 1));
+	new_environ = malloc(sizeof(char *) * (size + 1));
 	if (!new_environ)
 		return (NULL);
 
-	for (idx = 0; env[idx]; idx++)
+	for (index = 0; environ[index]; index++)
 	{
-		new_environ[idx] = malloc(_strlen(env[idx]) + 1);
+		new_environ[index] = malloc(_strlen(environ[index]) + 1);
 
-		if (!new_environ[idx])
+		if (!new_environ[index])
 		{
-			for (idx--; idx >= 0; idx--)
-				free(new_environ[idx]);
+			for (index--; index >= 0; index--)
+				free(new_environ[index]);
 			free(new_environ);
 			return (NULL);
 		}
-		_strcpy(new_environ[idx], env[idx]);
+		_strcpy(new_environ[index], environ[index]);
 	}
-	new_environ[idx] = NULL;
+	new_environ[index] = NULL;
 
 	return (new_environ);
 }
@@ -55,11 +57,12 @@ char **_copyenv(void)
  */
 void free_env(void)
 {
-	int idx;
+	int index;
+	extern char **environ;
 
-	for (idx = 0; env[idx]; idx++)
-		free(env[idx]);
-	free(env);
+	for (index = 0; environ[index]; index++)
+		free(environ[index]);
+	free(environ);
 }
 
 /**
@@ -70,14 +73,16 @@ void free_env(void)
  */
 char **_getenv(const char *var)
 {
-	int idx, size;
+	int index, len;
+	extern char **environ;
 
-	size = _strlen(var);
-	for (idx = 0; env[idx]; idx++)
+	len = _strlen(var);
+	for (index = 0; environ[index]; index++)
 	{
-		if (_strncmp(var, env[idx], size) == 0)
-			return (&env[idx]);
+		if (_strncmp(var, environ[index], len) == 0)
+			return (&environ[index]);
 	}
 
 	return (NULL);
 }
+
