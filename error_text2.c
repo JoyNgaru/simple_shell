@@ -79,7 +79,6 @@ char *error_127(char **args)
 		_strcat(err, ": not found\n");
 
 		free(history_string);
-	
 	return (err);
 	}
 }

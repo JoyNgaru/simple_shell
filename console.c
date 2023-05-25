@@ -107,7 +107,7 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
  */
 int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 {
-	
+
 	extern char **environ;
 	char **env_var, **new_environ;
 	size_t size;
