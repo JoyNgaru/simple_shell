@@ -48,7 +48,7 @@ int num_len(int num)
  */
 char *_itoa(int num)
 {
-	char *buffer_store, buffer;
+	char *buffer_store;
 	int length = num_len(num);
 	unsigned int number;
 
@@ -56,7 +56,7 @@ char *_itoa(int num)
 	if (!buffer_store)
 		return (NULL);
 
-	buffer[length] = '\0';
+	buffer_store[length] = '\0';
 
 	if (num < 0)
 	{

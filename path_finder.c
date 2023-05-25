@@ -35,7 +35,7 @@ char *get_location(char *command)
 		if (!temp)
 			return (NULL);
 
-		_strcpy(temp, dirs->directoryr);
+		_strcpy(temp, dirs->directory);
 		_strcat(temp, "/");
 		_strcat(temp, command);
 

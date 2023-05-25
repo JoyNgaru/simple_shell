@@ -65,7 +65,7 @@ int count_tokens(char *str, char *delim)
  */
 char **_strtok(char *line, char *delim)
 {
-	char **pointer, ptr;
+	char **pointer;
 	int idx = 0, tokens, content_tokens, letters, content_letters;
 
 	tokens = count_tokens(line, delim);
@@ -83,7 +83,7 @@ char **_strtok(char *line, char *delim)
 
 		letters = token_len(line + idx, delim);
 
-		ptr[content_tokens] = malloc(sizeof(char) * (letters + 1));
+		pointer[content_tokens] = malloc(sizeof(char) * (letters + 1));
 		if (!pointer[content_tokens])
 		{
 			for (idx -= 1; idx >= 0; idx--)
@@ -94,11 +94,11 @@ char **_strtok(char *line, char *delim)
 
 		for (content_letters = 0; content_letters < letters; content_letters++)
 		{
-			ptr[content_tokens][content_letters] = line[idx];
+			pointer[content_tokens][content_letters] = line[idx];
 			idx++;
 		}
 
-		ptr[content_tokens][content_letters] = '\0';
+		pointer[content_tokens][content_letters] = '\0';
 	}
 	pointer[content_tokens] = NULL;
 	pointer[content_tokens + 1] = NULL;

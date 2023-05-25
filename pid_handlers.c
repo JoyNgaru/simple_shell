@@ -49,18 +49,18 @@ char *get_pid(void)
 		return (NULL);
 	}
 	buffer_store = malloc(120);
-	if (!buffer_store;)
+	if (!buffer_store)
 	{
 		close(data);
 		return (NULL);
 	}
 	read(data, buffer_store, 120);
 
-	while (buffer[content != ' '])
+	while (buffer_store[content != ' '])
 
-	while (buffer[content != ' '])
+	while (buffer_store[content != ' '])
 		content++;
-	buffer[content] = '\0';
+	buffer_store[content] = '\0';
 	close(data);
 	return (buffer_store);
 }
@@ -86,7 +86,7 @@ char *get_env_value(char *beginning, int len)
 	free(variable);
 	if (variable_address)
 	{
-		temp = *varable_address;
+		temp = *variable_address;
 		while (*temp != '=')
 			temp++;
 		temp++;
@@ -141,7 +141,7 @@ void variable_replacement(char **line, int *exe_ret)
 					  + _strlen(&src_line[new_content]) + 1);
 			if (!line)
 				return;
-			new_line[0] = '\0';
+			dest_line[0] = '\0';
 			_strncat(dest_line, src_line, old_content);
 			if (sub)
 			{

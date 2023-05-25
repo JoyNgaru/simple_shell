@@ -108,7 +108,7 @@ int proc_file_commands(char *file_path, int *exe_ret)
 	}
 	front = args;
 
-	for (input = 0; args[i]; input++)
+	for (input = 0; args[input]; input++)
 	{
 		if (_strncmp(args[input], ";", 1) == 0)
 		{

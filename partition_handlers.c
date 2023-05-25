@@ -1,7 +1,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*     Function of file:  partition_handlers.c         */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */
@@ -168,22 +168,22 @@ void logical_ops(char *line, ssize_t *new_len)
 {
 	char previous, current, next;
 
-	prev = *(line - 1);
+	previous = *(line - 1);
 	current = *line;
 	next = *(line + 1);
 
 	if (current == '&')
 	{
-		if (next == '&' && prev != ' ')
+		if (next == '&' && previous != ' ')
 			(*new_len)++;
-		else if (prev == '&' && next != ' ')
+		else if (previous == '&' && next != ' ')
 			(*new_len)++;
 	}
 	else if (current == '|')
 	{
-		if (next == '|' && prev != ' ')
+		if (next == '|' && previous != ' ')
 			(*new_len)++;
-		else if (prev == '|' && next != ' ')
+		else if (previous == '|' && next != ' ')
 			(*new_len)++;
 	}
 }

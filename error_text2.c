@@ -20,7 +20,7 @@ char *error_127(char **args);
 char *error_126(char **args)
 {
 	{
-		char *err, *history_string;
+		char *error, *history_string;
 		int length;
 
 		history_string = _itoa(history);
@@ -28,23 +28,24 @@ char *error_126(char **args)
 			return (NULL);
 
 		length = _strlen(name) + _strlen(history_string) + _strlen(args[0]) + 24;
-		err = malloc(sizeof(char) * (length + 1));
-		if (!err)
+		error = malloc(sizeof(char) * (length + 1));
+		if (!error)
 		{
 			free(history_string);
 			return (NULL);
 		}
 
-		_strcpy(err, name);
-		_strcat(err, ": ");
-		_strcat(err, history_string);
-		_strcat(err, ": ");
-		_strcat(err, args[0]);
-		_strcat(err, ": Permission denied\n");
+		_strcpy(error, name);
+		_strcat(error, ": ");
+		_strcat(error, history_string);
+		_strcat(error, ": ");
+		_strcat(error, args[0]);
+		_strcat(error, ": Permission denied\n");
 
 		free(history_string);
+
+	return (error);
 	}
-	return (err);
 }
 
 /**
@@ -78,6 +79,7 @@ char *error_127(char **args)
 		_strcat(err, ": not found\n");
 
 		free(history_string);
-	}
+	
 	return (err);
+	}
 }

@@ -63,7 +63,7 @@ int call_args(char **args, char **front, int *exe_ret)
 
 	if (!args[0])
 		return (*exe_ret);
-	for (idx = 0; args[idx]; index++)
+	for (idx = 0; args[idx]; idx++)
 	{
 		if (_strncmp(args[idx], "||", 2) == 0)
 		{
@@ -88,7 +88,7 @@ int call_args(char **args, char **front, int *exe_ret)
 			free(args[idx]);
 			args[idx] = NULL;
 			args = replace_aliases(args);
-			ret = run_args(args, front, exe_ret);
+			Return_value = run_args(args, front, exe_ret);
 			if (*exe_ret == 0)
 			{
 				args = &args[++idx];
@@ -126,7 +126,7 @@ int run_args(char **args, char **front, int *exe_ret)
 	{
 		Return_value = builtin(args + 1, front);
 		if (Return_value != EXIT)
-			*exe_ret = return_value;
+			*exe_ret = Return_value;
 	}
 	else
 	{

@@ -3,7 +3,7 @@
 /* *************************************************** */
 /*                                                     */
 /*                                                     */
-/*              Function of file: Header file          */
+/*              Function of file: console.c            */
 /*                                                     */
 /*              Created by: Joram Oloo                 */
 /*                          Joy Ngaru                  */
@@ -21,7 +21,7 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
  * Return: -1 If an error occurs else - 0.
  * Description: outputs one variable per ('variable' = 'value')
  */
-int shellby_env(char **args, char __attribute__((__unused__)) **front);
+int shellby_env(char **args, char __attribute__((__unused__)) **front)
 {
 	int index;
 	char nc = '\n';
@@ -51,7 +51,7 @@ int shellby_env(char **args, char __attribute__((__unused__)) **front);
  *  args[2] value to set the new or changed variable to.
  * Return: If an error occurs - -1, otherwise - 0.
  */
-int shellby_setenv(char **args, char __attribute__((__unused__)) **front);
+int shellby_setenv(char **args, char __attribute__((__unused__)) **front)
 {
 	char **env_var = NULL, **new_environ, *new_value;
 	size_t length;
@@ -84,13 +84,13 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front);
 		return (create_error(args, -1));
 	}
 
-	for (idx = 0; env[idx]; idx++)
-		new_environ[idx] = env[idx];
+	for (idx = 0; env_var[idx]; idx++)
+		new_environ[idx] = env_var[idx];
 
-	free(env);
-	env = new_environ;
-	env[idx] = new_value;
-	env[idx + 1] = NULL;
+	free(env_var);
+	env_var = new_environ;
+	env_var[idx] = new_value;
+	env_var[idx + 1] = NULL;
 
 	return (0);
 }
@@ -103,7 +103,7 @@ int shellby_setenv(char **args, char __attribute__((__unused__)) **front);
  * Description: args[1] is the PATH variable to deleted.
   * Return: If an error occurs - -1, otherwise - 0.
  */
-int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
+int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front)
 {
 	char **env_var, **new_environ;
 	size_t length;
@@ -115,26 +115,26 @@ int shellby_unsetenv(char **args, char __attribute__((__unused__)) **front);
 	if (!env_var)
 		return (0);
 
-	for (length = 0; env[length]; length++)
+	for (length = 0; env_var[length]; length++)
 		;
 
 	new_environ = malloc(sizeof(char *) * length);
 	if (!new_environ)
 		return (create_error(args, -1));
 
-	for (idx = 0, idx2 = 0; env[idx]; idx++)
+	for (idx = 0, idx2 = 0; env_var[idx]; idx++)
 	{
-		if (*env_var == env[idx])
+		if (*env_var == env_var[idx])
 		{
 			free(*env_var);
 			continue;
 		}
-		new_environ[idx2] = env[idx];
+		new_environ[idx2] = env_var[idx];
 		idx2++;
 	}
-	free(env);
-	env = new_environ;
-	env[length - 1] = NULL;
+	free(env_var);
+	env_var = new_environ;
+	env_var[length - 1] = NULL;
 
 	return (0);
 }

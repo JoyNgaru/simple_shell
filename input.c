@@ -9,7 +9,7 @@
 /*                          Joy Ngaru                  */
 /* *************************************************** */
 
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+void *_realloc(void *ptr, size_t old_size, size_t new_size);
 void assign_lineptr(char **lineptr, size_t *n, char *buffer, size_t b);
 ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
@@ -20,7 +20,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
  * @new_size: size of the mem to the pointer.
  * Return: pointer to the reallocated memory new_ptr
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+void *_realloc(void *ptr, size_t old_size, size_t new_size)
 {
 	void *memory;
 	char *new_ptr, *content;
@@ -55,7 +55,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	content = memory;
 
 	for (idx = 0; idx < old_size && idx < new_size; idx++)
-		content[idx] = *-new_ptr++;
+		content[idx] = *new_ptr++;
 
 	free(ptr);
 	return (memory);
@@ -134,12 +134,12 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream)
 		if (input >= 120)
 			buffer_store = _realloc(buffer_store, input, input + 1);
 
-		buffer[input] = content;
+		buffer_store[input] = content;
 		input++;
 	}
-	buffer[input] = '\0';
+	buffer_store[input] = '\0';
 
-	assign_lineptr(lineptr, n, buffer, input);
+	assign_lineptr(lineptr, n, buffer_store, input);
 
 	output = input;
 	if (reader != 0)
