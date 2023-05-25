@@ -35,7 +35,7 @@
 
 char *name;
 /* declaring global varibales to be used in the global environment*/
-extern char **env;
+extern char **environ;
 /* declaring global variable for hhistory*/
 int history;
 
